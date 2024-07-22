@@ -1,0 +1,15 @@
+<h1><%= @game.name1 %> vs. <%= @game.name2 %></h1>
+<p><%= @game.name1 %> HP: <%= @game.hp1 %></p>
+<p><%= @game.name2 %> HP: <%= @game.hp2 %></p>
+
+<% if @game.active_player == @game.player1 %>
+<form action='/attack' method='post'><input type="submit" value="Attack <%= @game.name2 %>"/></form>
+  <% if @last_action == :attack %>
+    <p><%= @game.name1 %>, fight back! Attack <%= @game.name2 %>!</p>
+  <% else %>
+    <p><%= @game.name1 %>, get ready to attack <%= @game.name2 %>!</p>
+  <% end %>
+<% else %>
+  <form action='/attack' method='post'><input type="submit" value="Attack <%= @game.name1 %>"/></form>
+  <p><%= @game.name2 %>, fight back! Attack <%= @game.name1 %>!</p>
+<% end %>

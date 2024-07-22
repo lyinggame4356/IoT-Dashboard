@@ -1,0 +1,12 @@
+<h1><%= @game.name1 %> vs. <%= @game.name2 %></h1>
+<% if @game.active_player == @game.player1 %>
+<p><%= @game.name1 %> attacked <%= @game.name2 %>!</p>
+<p><%= @game.name2 %>, get ready to fight!</p>
+<% else %>
+<p><%= @game.name2 %> attacked <%= @game.name1 %></p>
+<p><%= @game.name1 %>, get ready to fight!</p>
+<% end %>
+
+<form action='/switch_turn' method='post'>
+  <input type="submit" value="OK"/>
+</form>
